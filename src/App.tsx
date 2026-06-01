@@ -10,6 +10,7 @@ function App() {
     calculate,
     clear,
     appendDecimal,
+    toggleSign,
   } = useCalculator()
 
   return (
@@ -22,6 +23,7 @@ function App() {
         onEqualsClick={calculate}
         onClearClick={clear}
         onDecimalClick={appendDecimal}
+        onToggleSignClick={toggleSign}
       />
     </>
   )

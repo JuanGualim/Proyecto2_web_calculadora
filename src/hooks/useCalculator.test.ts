@@ -174,5 +174,45 @@ describe('useCalculator', () => {
         result.current.display
     ).toBe('2.5')
     })
-    
+
+    it('changes number sign', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        result.current.appendDigit('5')
+    })
+
+    act(() => {
+        result.current.toggleSign()
+    })
+
+    expect(
+        result.current.display
+    ).toBe('-5')
+    })
+
+    it('restores positive sign', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        result.current.appendDigit('5')
+    })
+
+    act(() => {
+        result.current.toggleSign()
+    })
+
+    act(() => {
+        result.current.toggleSign()
+    })
+
+    expect(
+        result.current.display
+    ).toBe('5')
+    })
+
 })

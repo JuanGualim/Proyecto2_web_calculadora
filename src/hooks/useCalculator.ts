@@ -114,6 +114,19 @@ export function useCalculator() {
         setShouldResetDisplay(false)
     }
 
+        const toggleSign = () => {
+            if (display === '0') {
+                return
+            }
+
+            if (display.startsWith('-')) {
+                setDisplay(display.slice(1))
+                return
+            }
+
+            setDisplay(`-${display}`)
+        }
+
     return {
         display,
         appendDigit,
@@ -121,5 +134,6 @@ export function useCalculator() {
         selectOperator,
         calculate,
         clear,
+        toggleSign,
     }
 }
