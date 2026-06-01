@@ -3,6 +3,7 @@ import {
   subtract,
   multiply,
   divide,
+  isInvalidResult,
 } from './calculator'
 
 describe('calculator', () => {
@@ -21,4 +22,21 @@ describe('calculator', () => {
   it('divides numbers', () => {
     expect(divide(10, 2)).toBe(5)
   })
+    it('detects negative results', () => {
+    expect(
+        isInvalidResult(-1)
+    ).toBe(true)
+    })
+
+    it('detects overflow results', () => {
+    expect(
+        isInvalidResult(100000000)
+    ).toBe(true)
+    })
+
+    it('accepts valid results', () => {
+    expect(
+        isInvalidResult(99999999)
+    ).toBe(false)
+    })
 })

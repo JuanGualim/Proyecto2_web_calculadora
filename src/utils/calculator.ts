@@ -25,3 +25,9 @@ export function divide(
 ) {
   return a / b
 }
+
+export function isInvalidResult(
+  value: number,
+) {
+  return value < 0 || value > 99999999
+}

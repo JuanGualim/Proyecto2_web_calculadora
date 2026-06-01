@@ -4,6 +4,7 @@ import {
   subtract,
   multiply,
   divide,
+  isInvalidResult,
 } from '../utils/calculator'
 
 export function useCalculator() {
@@ -40,50 +41,59 @@ export function useCalculator() {
         setDisplay('0')
     }
     const calculate = () => {
-    if (
-        firstOperand === null ||
-        operator === null
-    ) {
-        return
-    }
+        if (
+            firstOperand === null ||
+            operator === null
+        ) {
+            return
+        }
 
-    const secondOperand = Number(display)
+        const secondOperand = Number(display)
 
-    let result = 0
+        let result = 0
 
-    if (operator === '+') {
-        result = add(
-        firstOperand,
-        secondOperand,
-        )
-    }
+        if (operator === '+') {
+            result = add(
+            firstOperand,
+            secondOperand,
+            )
+        }
 
-    if (operator === '-') {
-        result = subtract(
-        firstOperand,
-        secondOperand,
-        )
-    }
+        if (operator === '-') {
+            result = subtract(
+            firstOperand,
+            secondOperand,
+            )
+        }
 
-    if (operator === '*') {
-        result = multiply(
-        firstOperand,
-        secondOperand,
-        )
-    }
+        if (operator === '*') {
+            result = multiply(
+            firstOperand,
+            secondOperand,
+            )
+        }
 
-    if (operator === '/') {
-        result = divide(
-        firstOperand,
-        secondOperand,
-        )
-    }
+        if (operator === '/') {
+            result = divide(
+            firstOperand,
+            secondOperand,
+            )
+        }
+        if (isInvalidResult(result)) {
+            setDisplay('ERROR')
 
-    setDisplay(String(result))
-    setShouldResetDisplay(true)
+            setFirstOperand(null)
+            setOperator(null)
+            setShouldResetDisplay(true)
 
-    setFirstOperand(null)
-    setOperator(null)
+            return
+        }
+
+        setDisplay(String(result))
+        setShouldResetDisplay(true)
+
+        setFirstOperand(null)
+        setOperator(null)
     }
 
     return {

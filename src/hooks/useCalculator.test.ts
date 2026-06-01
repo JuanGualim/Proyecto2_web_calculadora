@@ -80,5 +80,59 @@ describe('useCalculator', () => {
         result.current.display
     ).toBe('3')
     })
+
+    it('shows ERROR for negative results', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        result.current.appendDigit('2')
+    })
+
+    act(() => {
+        result.current.selectOperator('-')
+    })
+
+    act(() => {
+        result.current.appendDigit('5')
+    })
+
+    act(() => {
+        result.current.calculate()
+    })
+
+    expect(
+        result.current.display
+    ).toBe('ERROR')
+    })
+
+    it('shows ERROR for overflow', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        '99999999'.split('').forEach(
+        digit => result.current.appendDigit(digit)
+        )
+    })
+
+    act(() => {
+        result.current.selectOperator('+')
+    })
+
+    act(() => {
+        result.current.appendDigit('1')
+    })
+
+    act(() => {
+        result.current.calculate()
+    })
+
+    expect(
+        result.current.display
+    ).toBe('ERROR')
+    })
   
 })
