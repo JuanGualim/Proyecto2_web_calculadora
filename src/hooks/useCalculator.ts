@@ -40,6 +40,7 @@ export function useCalculator() {
         setOperator(nextOperator)
         setDisplay('0')
     }
+
     const calculate = () => {
         if (
             firstOperand === null ||
@@ -96,10 +97,18 @@ export function useCalculator() {
         setOperator(null)
     }
 
+    const clear = () => {
+        setDisplay('0')
+        setFirstOperand(null)
+        setOperator(null)
+        setShouldResetDisplay(false)
+    }
+
     return {
         display,
         appendDigit,
         selectOperator,
         calculate,
+        clear,
     }
 }

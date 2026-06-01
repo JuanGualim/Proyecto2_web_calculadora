@@ -134,5 +134,23 @@ describe('useCalculator', () => {
         result.current.display
     ).toBe('ERROR')
     })
+
+    it('clears calculator state', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        result.current.appendDigit('5')
+    })
+
+    act(() => {
+        result.current.clear()
+    })
+
+    expect(
+        result.current.display
+    ).toBe('0')
+    })
   
 })

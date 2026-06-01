@@ -8,6 +8,7 @@ function App() {
     appendDigit,
     selectOperator,
     calculate,
+    clear,
   } = useCalculator()
 
   return (
@@ -18,6 +19,7 @@ function App() {
         onDigitClick={appendDigit}
         onOperatorClick={selectOperator}
         onEqualsClick={calculate}
+        onClearClick={clear}
       />
     </>
   )

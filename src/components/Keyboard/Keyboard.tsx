@@ -4,12 +4,14 @@ type KeyboardProps = {
   onDigitClick: (digit: string) => void
   onOperatorClick: (operator: string) => void
   onEqualsClick: () => void
+  onClearClick: () => void
 }
 
 export function Keyboard({
   onDigitClick,
   onOperatorClick,
   onEqualsClick,
+  onClearClick,
 }: KeyboardProps) {
   const digits = [
     '1', '2', '3',
@@ -52,6 +54,10 @@ export function Keyboard({
         label="="
         onClick={onEqualsClick}
       />
+        <Button
+            label="C"
+            onClick={onClearClick}
+        />
     </div>
   )
 }
