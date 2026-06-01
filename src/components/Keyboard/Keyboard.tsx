@@ -7,11 +7,22 @@ type KeyboardProps = {
 export function Keyboard({
   onDigitClick,
 }: KeyboardProps) {
+  const digits = [
+    '1', '2', '3',
+    '4', '5', '6',
+    '7', '8', '9',
+    '0',
+  ]
+
   return (
     <div>
-      <Button label="1" onClick={() => onDigitClick('1')} />
-      <Button label="2" onClick={() => onDigitClick('2')} />
-      <Button label="3" onClick={() => onDigitClick('3')} />
+      {digits.map(digit => (
+        <Button
+          key={digit}
+          label={digit}
+          onClick={() => onDigitClick(digit)}
+        />
+      ))}
     </div>
   )
 }
