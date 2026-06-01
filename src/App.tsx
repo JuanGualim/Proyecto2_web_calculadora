@@ -14,18 +14,20 @@ function App() {
   } = useCalculator()
 
   return (
-    <>
-      <Display value={display} />
+    <div className="app">
+      <div className="calculator">
+        <Display value={display} />
 
-      <Keyboard
-        onDigitClick={appendDigit}
-        onOperatorClick={selectOperator}
-        onEqualsClick={calculate}
-        onClearClick={clear}
-        onDecimalClick={appendDecimal}
-        onToggleSignClick={toggleSign}
-      />
-    </>
+        <Keyboard
+          onDigitClick={appendDigit}
+          onOperatorClick={selectOperator}
+          onEqualsClick={calculate}
+          onClearClick={clear}
+          onDecimalClick={appendDecimal}
+          onToggleSignClick={toggleSign}
+        />
+      </div>
+    </div>
   )
 }
 

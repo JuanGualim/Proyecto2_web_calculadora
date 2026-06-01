@@ -1,3 +1,5 @@
+import './Button.css'
+
 type ButtonProps = {
   label: string
   onClick: () => void
@@ -8,8 +10,11 @@ export function Button({
   onClick,
 }: ButtonProps) {
   return (
-    <button onClick={onClick}>
-      {label}
+    <button 
+        className="calculator-button"
+        onClick={onClick}
+    >
+        {label}
     </button>
   )
 }

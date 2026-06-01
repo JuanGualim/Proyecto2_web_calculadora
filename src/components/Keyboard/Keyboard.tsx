@@ -1,3 +1,4 @@
+import './Keyboard.css'
 import { Button } from '../Button/Button'
 
 type KeyboardProps = {
@@ -25,7 +26,7 @@ export function Keyboard({
   ]
 
   return (
-    <div>
+    <div className="keyboard">
       {digits.map(digit => (
         <Button
           key={digit}
@@ -69,6 +70,10 @@ export function Keyboard({
         <Button
             label="+/-"
             onClick={onToggleSignClick}
+        />
+        <Button
+            label="%"
+            onClick={() => onOperatorClick('%')}
         />
     </div>
   )

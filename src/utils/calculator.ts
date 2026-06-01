@@ -31,3 +31,10 @@ export function isInvalidResult(
 ) {
   return value < 0 || value > 99999999
 }
+
+export function modulo(
+  a: number,
+  b: number,
+) {
+  return a % b
+}

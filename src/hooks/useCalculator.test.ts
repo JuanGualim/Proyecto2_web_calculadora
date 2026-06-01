@@ -215,4 +215,33 @@ describe('useCalculator', () => {
     ).toBe('5')
     })
 
+    it('calculates modulo', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        result.current.appendDigit('1')
+    })
+
+    act(() => {
+        result.current.appendDigit('0')
+    })
+
+    act(() => {
+        result.current.selectOperator('%')
+    })
+
+    act(() => {
+        result.current.appendDigit('3')
+    })
+
+    act(() => {
+        result.current.calculate()
+    })
+
+    expect(
+        result.current.display
+    ).toBe('1')
+    })
 })

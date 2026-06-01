@@ -1,9 +1,10 @@
 import {
-  add,
-  subtract,
-  multiply,
-  divide,
-  isInvalidResult,
+    add,
+    subtract,
+    multiply,
+    divide,
+    isInvalidResult,
+    modulo,
 } from './calculator'
 
 describe('calculator', () => {
@@ -38,5 +39,11 @@ describe('calculator', () => {
     expect(
         isInvalidResult(99999999)
     ).toBe(false)
+    })
+
+    it('calculates modulo', () => {
+    expect(
+        modulo(10, 3)
+    ).toBe(1)
     })
 })

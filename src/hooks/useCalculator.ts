@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import {
-  add,
-  subtract,
-  multiply,
-  divide,
-  isInvalidResult,
+    add,
+    subtract,
+    multiply,
+    divide,
+    isInvalidResult,
+    modulo,
 } from '../utils/calculator'
 
 export function useCalculator() {
@@ -90,6 +91,14 @@ export function useCalculator() {
             secondOperand,
             )
         }
+
+        if (operator === '%') {
+            result = modulo(
+                firstOperand,
+                secondOperand,
+            )
+        }
+        
         if (isInvalidResult(result)) {
             setDisplay('ERROR')
 

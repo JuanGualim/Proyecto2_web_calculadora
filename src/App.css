@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.calculator {
+  width: 320px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #222;
+}
