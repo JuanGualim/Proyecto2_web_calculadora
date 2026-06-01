@@ -12,8 +12,15 @@ export function useCalculator() {
     const [firstOperand, setFirstOperand] = useState<number | null>(null)
 
     const [operator, setOperator] = useState<string | null>(null)
+    const [shouldResetDisplay, setShouldResetDisplay] = useState(false)
 
     const appendDigit = (digit: string) => {
+        if (shouldResetDisplay) {
+            setDisplay(digit)
+            setShouldResetDisplay(false)
+            return
+        }
+
         setDisplay(currentDisplay => {
         if (currentDisplay.length >= 9) {
             return currentDisplay
@@ -73,6 +80,7 @@ export function useCalculator() {
     }
 
     setDisplay(String(result))
+    setShouldResetDisplay(true)
 
     setFirstOperand(null)
     setOperator(null)

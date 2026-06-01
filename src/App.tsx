@@ -6,12 +6,19 @@ function App() {
   const {
     display,
     appendDigit,
+    selectOperator,
+    calculate,
   } = useCalculator()
 
   return (
     <>
       <Display value={display} />
-      <Keyboard onDigitClick={appendDigit} />
+
+      <Keyboard
+        onDigitClick={appendDigit}
+        onOperatorClick={selectOperator}
+        onEqualsClick={calculate}
+      />
     </>
   )
 }

@@ -2,10 +2,14 @@ import { Button } from '../Button/Button'
 
 type KeyboardProps = {
   onDigitClick: (digit: string) => void
+  onOperatorClick: (operator: string) => void
+  onEqualsClick: () => void
 }
 
 export function Keyboard({
   onDigitClick,
+  onOperatorClick,
+  onEqualsClick,
 }: KeyboardProps) {
   const digits = [
     '1', '2', '3',
@@ -23,6 +27,31 @@ export function Keyboard({
           onClick={() => onDigitClick(digit)}
         />
       ))}
+
+      <Button
+        label="+"
+        onClick={() => onOperatorClick('+')}
+      />
+
+      <Button
+        label="-"
+        onClick={() => onOperatorClick('-')}
+      />
+
+      <Button
+        label="*"
+        onClick={() => onOperatorClick('*')}
+      />
+
+      <Button
+        label="/"
+        onClick={() => onOperatorClick('/')}
+      />
+
+      <Button
+        label="="
+        onClick={onEqualsClick}
+      />
     </div>
   )
 }
