@@ -153,4 +153,26 @@ describe('useCalculator', () => {
     ).toBe('0')
     })
   
+    it('adds a decimal point', () => {
+    const { result } = renderHook(
+        () => useCalculator()
+    )
+
+    act(() => {
+        result.current.appendDigit('2')
+    })
+
+    act(() => {
+        result.current.appendDecimal()
+    })
+
+    act(() => {
+        result.current.appendDigit('5')
+    })
+
+    expect(
+        result.current.display
+    ).toBe('2.5')
+    })
+    
 })

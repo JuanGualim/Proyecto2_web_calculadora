@@ -35,6 +35,16 @@ export function useCalculator() {
         })
     }
 
+    const appendDecimal = () => {
+    setDisplay(currentDisplay => {
+        if (currentDisplay.includes('.')) {
+            return currentDisplay
+        }
+
+        return `${currentDisplay}.`
+    })
+    }
+
     const selectOperator = (nextOperator: string) => {
         setFirstOperand(Number(display))
         setOperator(nextOperator)
@@ -107,6 +117,7 @@ export function useCalculator() {
     return {
         display,
         appendDigit,
+        appendDecimal,
         selectOperator,
         calculate,
         clear,

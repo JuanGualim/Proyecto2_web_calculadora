@@ -5,6 +5,7 @@ type KeyboardProps = {
   onOperatorClick: (operator: string) => void
   onEqualsClick: () => void
   onClearClick: () => void
+  onDecimalClick: () => void
 }
 
 export function Keyboard({
@@ -12,6 +13,7 @@ export function Keyboard({
   onOperatorClick,
   onEqualsClick,
   onClearClick,
+  onDecimalClick,
 }: KeyboardProps) {
   const digits = [
     '1', '2', '3',
@@ -57,6 +59,10 @@ export function Keyboard({
         <Button
             label="C"
             onClick={onClearClick}
+        />
+        <Button
+            label="."
+            onClick={onDecimalClick}
         />
     </div>
   )

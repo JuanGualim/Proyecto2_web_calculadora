@@ -9,6 +9,7 @@ function App() {
     selectOperator,
     calculate,
     clear,
+    appendDecimal,
   } = useCalculator()
 
   return (
@@ -20,6 +21,7 @@ function App() {
         onOperatorClick={selectOperator}
         onEqualsClick={calculate}
         onClearClick={clear}
+        onDecimalClick={appendDecimal}
       />
     </>
   )
