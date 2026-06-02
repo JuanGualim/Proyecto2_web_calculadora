@@ -1,3 +1,4 @@
+import './App.css'
 import { Display } from './components/Display/Display'
 import { Keyboard } from './components/Keyboard/Keyboard'
 import { useCalculator } from './hooks/useCalculator'

@@ -1,5 +1,15 @@
 .keyboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 8px;
+}
+
+/* Make the 0 button span 2 columns */
+.keyboard .btn-zero {
+  grid-column: span 2;
+  display: flex;
+}
+
+.keyboard .btn-zero .calculator-button {
+  flex: 1;
 }

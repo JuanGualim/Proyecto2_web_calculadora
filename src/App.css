@@ -1,12 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:          #080f0a;
+  --surface:     #0d1710;
+  --surface2:    #111f14;
+  --border:      rgba(74,222,128,0.10);
+  --accent:      #4ade80;       /* green-400 */
+  --accent-bright: #86efac;    /* green-300 */
+  --accent2:     #22c55e;      /* green-500 */
+  --accent-dim:  rgba(74,222,128,0.18);
+  --text:        #e8f5ec;
+  --text-muted:  #4d7a58;
+  --op-bg:       #0f1e12;
+  --op-hover:    #162619;
+  --digit-bg:    #111a13;
+  --digit-hover: #182119;
+  --eq-bg:       #4ade80;
+  --eq-text:     #040d06;
+  --shadow:      0 32px 80px rgba(0,0,0,0.7);
+  --glow:        0 0 60px rgba(74,222,128,0.10);
+  --radius:      18px;
+  --radius-sm:   12px;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'DM Mono', monospace;
+  min-height: 100vh;
+}
+
 .app {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(34,197,94,0.06) 0%, transparent 70%),
+    var(--bg);
 }
 
 .calculator {
-  width: 320px;
-  padding: 20px;
-  border-radius: 12px;
-  background: #222;
+  width: 340px;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid rgba(74,222,128,0.14);
+  box-shadow: var(--shadow), var(--glow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* green glow corner */
+.calculator::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle at top left, rgba(74,222,128,0.15), transparent 70%);
+  pointer-events: none;
+}
+
+/* brand label */
+.calculator::after {
+  content: 'CALC';
+  position: absolute;
+  top: 26px; left: 28px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  opacity: 0.55;
 }

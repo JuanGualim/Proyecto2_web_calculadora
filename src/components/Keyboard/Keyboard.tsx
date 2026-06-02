@@ -7,7 +7,7 @@ type KeyboardProps = {
   onEqualsClick: () => void
   onClearClick: () => void
   onDecimalClick: () => void
-    onToggleSignClick: () => void,
+  onToggleSignClick: () => void
 }
 
 export function Keyboard({
@@ -16,69 +16,44 @@ export function Keyboard({
   onEqualsClick,
   onClearClick,
   onDecimalClick,
-  onToggleSignClick
+  onToggleSignClick,
 }: KeyboardProps) {
-  const digits = [
-    '1', '2', '3',
-    '4', '5', '6',
-    '7', '8', '9',
-    '0',
-  ]
-
   return (
-    <div 
+    <div
       className="keyboard"
       role="group"
       aria-label="Calculator keyboard"
     >
-      {digits.map(digit => (
-        <Button
-          key={digit}
-          label={digit}
-          onClick={() => onDigitClick(digit)}
-        />
-      ))}
+      {/* Row 1 */}
+      <Button label="C"   onClick={onClearClick}                  variant="clear" />
+      <Button label="+/-" onClick={onToggleSignClick}             variant="utility" />
+      <Button label="%"   onClick={() => onOperatorClick('%')}    variant="utility" />
+      <Button label="/"   onClick={() => onOperatorClick('/')}    variant="operator" />
 
-      <Button
-        label="+"
-        onClick={() => onOperatorClick('+')}
-      />
+      {/* Row 2 */}
+      <Button label="7" onClick={() => onDigitClick('7')} />
+      <Button label="8" onClick={() => onDigitClick('8')} />
+      <Button label="9" onClick={() => onDigitClick('9')} />
+      <Button label="×" onClick={() => onOperatorClick('*')} variant="operator" />
 
-      <Button
-        label="-"
-        onClick={() => onOperatorClick('-')}
-      />
+      {/* Row 3 */}
+      <Button label="4" onClick={() => onDigitClick('4')} />
+      <Button label="5" onClick={() => onDigitClick('5')} />
+      <Button label="6" onClick={() => onDigitClick('6')} />
+      <Button label="−" onClick={() => onOperatorClick('-')} variant="operator" />
 
-      <Button
-        label="*"
-        onClick={() => onOperatorClick('*')}
-      />
+      {/* Row 4 */}
+      <Button label="1" onClick={() => onDigitClick('1')} />
+      <Button label="2" onClick={() => onDigitClick('2')} />
+      <Button label="3" onClick={() => onDigitClick('3')} />
+      <Button label="+" onClick={() => onOperatorClick('+')} variant="operator" />
 
-      <Button
-        label="/"
-        onClick={() => onOperatorClick('/')}
-      />
-
-      <Button
-        label="="
-        onClick={onEqualsClick}
-      />
-        <Button
-            label="C"
-            onClick={onClearClick}
-        />
-        <Button
-            label="."
-            onClick={onDecimalClick}
-        />
-        <Button
-            label="+/-"
-            onClick={onToggleSignClick}
-        />
-        <Button
-            label="%"
-            onClick={() => onOperatorClick('%')}
-        />
+      {/* Row 5 — 0 spans 2 columns via wrapper div */}
+      <div className="btn-zero">
+        <Button label="0" onClick={() => onDigitClick('0')} />
+      </div>
+      <Button label="." onClick={onDecimalClick} variant="utility" />
+      <Button label="=" onClick={onEqualsClick}  variant="equals" />
     </div>
   )
 }
