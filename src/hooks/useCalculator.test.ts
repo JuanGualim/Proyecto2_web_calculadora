@@ -244,4 +244,39 @@ describe('useCalculator', () => {
         result.current.display
     ).toBe('1')
     })
+
+    
+    it('supports chained additions', () => {
+    const { result } = renderHook(
+      () => useCalculator()
+    )
+
+    act(() => {
+      result.current.appendDigit('1')
+    })
+
+    act(() => {
+      result.current.selectOperator('+')
+    })
+
+    act(() => {
+      result.current.appendDigit('1')
+    })
+
+    act(() => {
+      result.current.selectOperator('+')
+    })
+
+    act(() => {
+      result.current.appendDigit('2')
+    })
+
+    act(() => {
+      result.current.calculate()
+    })
+
+    expect(
+      result.current.display
+    ).toBe('4')
+  })
 })
