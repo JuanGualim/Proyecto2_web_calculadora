@@ -6,6 +6,7 @@ import {
     divide,
     isInvalidResult,
     modulo,
+    calculateResult,
 } from '../utils/calculator'
 
 export function useCalculator() {
@@ -47,9 +48,37 @@ export function useCalculator() {
     }
 
     const selectOperator = (nextOperator: string) => {
-        setFirstOperand(Number(display))
+    const currentValue = Number(display)
+
+    if (
+        firstOperand !== null &&
+        operator !== null
+    ) {
+        const result = calculateResult(
+        firstOperand,
+        currentValue,
+        operator,
+        )
+
+        if (isInvalidResult(result)) {
+        setDisplay('ERROR')
+        setFirstOperand(null)
+        setOperator(null)
+        setShouldResetDisplay(true)
+        return
+        }
+
+        setDisplay(String(result))
+        setFirstOperand(result)
         setOperator(nextOperator)
-        setDisplay('0')
+        setShouldResetDisplay(true)
+
+        return
+    }
+
+    setFirstOperand(currentValue)
+    setOperator(nextOperator)
+    setDisplay('0')
     }
 
     const calculate = () => {

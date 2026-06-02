@@ -14,4 +14,17 @@ describe('Button', () => {
       screen.getByText('7')
     ).toBeInTheDocument()
   })
+
+  it('has accessible label', () => {
+    render(
+      <Button
+        label="+"
+        onClick={() => {}}
+      />
+    )
+
+    expect(
+      screen.getByLabelText('+')
+    ).toBeInTheDocument()
+  })
 })

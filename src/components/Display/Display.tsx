@@ -7,8 +7,9 @@ type DisplayProps = {
 export function Display({ value }: DisplayProps) {
   return (
     <div
-      aria-label="display"
+      aria-label="Calculator display"
       role="status"
+      aria-live="polite"
       className="display"
     >
       {value}

@@ -26,7 +26,11 @@ export function Keyboard({
   ]
 
   return (
-    <div className="keyboard">
+    <div 
+      className="keyboard"
+      role="group"
+      aria-label="Calculator keyboard"
+    >
       {digits.map(digit => (
         <Button
           key={digit}

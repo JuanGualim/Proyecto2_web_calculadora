@@ -12,6 +12,7 @@ export function Button({
   return (
     <button 
         className="calculator-button"
+        aria-label={label}
         onClick={onClick}
     >
         {label}

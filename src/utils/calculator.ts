@@ -38,3 +38,31 @@ export function modulo(
 ) {
   return a % b
 }
+
+export function calculateResult(
+  firstOperand: number,
+  secondOperand: number,
+  operator: string,
+) {
+  if (operator === '+') {
+    return add(firstOperand, secondOperand)
+  }
+
+  if (operator === '-') {
+    return subtract(firstOperand, secondOperand)
+  }
+
+  if (operator === '*') {
+    return multiply(firstOperand, secondOperand)
+  }
+
+  if (operator === '/') {
+    return divide(firstOperand, secondOperand)
+  }
+
+  if (operator === '%') {
+    return modulo(firstOperand, secondOperand)
+  }
+
+  return secondOperand
+}

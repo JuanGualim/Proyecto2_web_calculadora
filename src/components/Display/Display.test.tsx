@@ -7,6 +7,6 @@ describe('Display', () => {
 
     expect(
       screen.getByText('123')
-    ).toBeInTheDocument()
+    ).toBeInTheDocument() 
   })
 })
