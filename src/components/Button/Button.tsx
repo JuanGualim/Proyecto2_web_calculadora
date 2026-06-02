@@ -1,10 +1,8 @@
 import './Button.css'
-
 type ButtonProps = {
   label: string
   onClick: () => void
 }
-
 export function Button({
   label,
   onClick,
