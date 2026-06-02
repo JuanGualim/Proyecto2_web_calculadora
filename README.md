@@ -2,6 +2,11 @@
 
 Proyecto desarrollado con React, TypeScript y Vite.
 
+## Link del proyecto subido en el server de la clase.
+```bash
+http://35.239.29.236/24852/Lab6_Chat/calculadora-react/
+```
+
 ## Requisitos
 
 * Node.js 22 o superior
