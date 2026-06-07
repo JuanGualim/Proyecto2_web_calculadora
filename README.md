@@ -7,6 +7,10 @@ Proyecto desarrollado con React, TypeScript y Vite.
 http://35.239.29.236/24852/Lab6_Chat/calculadora-react/
 ```
 
+## Link del proyecto deployado en vercel
+```bash
+https://proyecto2-web-calculadora.vercel.app/
+```
 ## Requisitos
 
 * Node.js 22 o superior
